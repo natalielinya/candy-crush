@@ -193,10 +193,21 @@ function crushThree() {
         candy2.src == candy3.src &&
         !candy1.src.includes("blank")
       ) {
-        candy1.src = "./images/blank.png";
-        candy2.src = "./images/blank.png";
-        candy3.src = "./images/blank.png";
-        score += 30;
+        if (
+          candy1.src.includes("Coin 2") ||
+          candy2.src.includes("Coin 2") ||
+          candy3.src.includes("Coin 2")
+        ) {
+          score += 30;
+          candy1.src = "./images/blue.png";
+          candy2.style.backgroundColor = "black";
+          candy3.style.backgroundColor = "black";
+        } else {
+          // Only score points if it's a Coin
+          candy1.src = "./images/blank.png";
+          candy2.src = "./images/blank.png";
+          candy3.src = "./images/blank.png";
+        }
       }
     }
   }
@@ -218,9 +229,9 @@ function crushThree() {
           candy3.src.includes("Coin 2")
         ) {
           score += 30;
-          candy1.src = "./images/blank.png";
-          candy2.src = "./images/blank.png";
-          candy3.src = "./images/blank.png";
+          candy1.style.backgroundColor = "black";
+          candy2.style.backgroundColor = "black";
+          candy3.style.backgroundColor = "black";
         } else {
           // Only score points if it's a Coin
           candy1.src = "./images/blank.png";
