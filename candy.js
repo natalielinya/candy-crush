@@ -307,32 +307,21 @@ function generateCandy() {
   }
 }
 
-function adjustBackgroundColor() {
-    // Define the maximum score threshold for maximum darkness (adjustable)
-    const maxScore = 1000; // Adjust this based on how quickly you want it to get completely black
+function checkGameEnd() {
+    let fireCount = 0;
+    let totalTiles = rows * columns; // Total number of tiles on the board
 
-    // Ensure the score doesn't exceed the maxScore
-    let scoreFactor = Math.min(score, maxScore) / maxScore;
+    // Loop through all tiles to count how many have fire.png
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < columns; c++) {
+            if (board[r][c].src.includes("fire.png")) {
+                fireCount++;
+            }
+        }
+    }
 
-    // Starting color: #014040
-    const startColor = {
-        r: 230,
-        g: 242,
-        b: 188
-    };
-
-    // Ending color (black): #000000
-    const endColor = {
-        r: 0,
-        g: 0,
-        b: 0
-    };
-
-    // Interpolate between the start color and end color based on the score factor
-    const r = Math.round(startColor.r + (endColor.r - startColor.r) * scoreFactor);
-    const g = Math.round(startColor.g + (endColor.g - startColor.g) * scoreFactor);
-    const b = Math.round(startColor.b + (endColor.b - startColor.b) * scoreFactor);
-
-    // Set the background color using the calculated RGB values
-    document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    // Check if at least a third of the tiles are fire.png
+    if (fireCount >= 5) {
+        alert("Game Over! A third of the tiles have turned to fire.");
+    }
 }
