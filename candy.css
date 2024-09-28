@@ -10,7 +10,8 @@ body {
 #board {
     width: 450px;
     height: 450px;
-    background-color: #72C1C1;
+    background-color: #014040;
+    /*background-color: #72C1C1;*/
     /*border: 5px solid slategray;*/
     border-radius: 3px;
     margin: 0 auto;
