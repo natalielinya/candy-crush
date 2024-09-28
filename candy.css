@@ -1,69 +1,113 @@
 body {
-    /*background: url("./background.jpg") no-repeat center center fixed;*/
-    /*background-color: #014040;*/
-    background-color: #EFF2BD;
-    background-size: cover;
-    font-family: "Micro 5", Arial, Helvetica, sans-serif; /* Updated font-family */
-    color: #13260E;
-    text-align: center;
+  /*background: url("./background.jpg") no-repeat center center fixed;*/
+  /*background-color: #014040;*/
+  background-color: #eff2bd;
+  background-size: cover;
+  font-family: "Micro 5", Arial, Helvetica, sans-serif; /* Updated font-family */
+  color: #13260e;
+  text-align: center;
 }
 
 #board {
-    width: 450px;
-    height: 450px;
-    background-color: #E7F2BD;
-    background-color: #EFF2BD;
-    /*background-color: #014040;
-    /*background-color: #72C1C1;*/
-    /*border: 5px solid slategray;*/
-    border-radius: 3px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+  width: 90vw; /* Use 90% of the viewport width */
+  height: 90vw; /* Keep a square aspect ratio */
+  max-width: 450px; /* Limit the max size on larger screens */
+  max-height: 450px;
+  background-color: #e7f2bd;
+  background-color: #eff2bd;
+  border-radius: 3px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
+
 #board img {
-    width: 50px;
-    height: 50px;
+  width: calc(100% / 9); /* Adjust tile size based on grid (9x9) */
+  height: calc(100% / 9);
+  object-fit: cover; /* Ensures the image fills the space without stretching */
 }
 
 /* Center the main title with some distance from the top */
 .main-title {
-    font-size: 8rem; /* Adjust font size as needed */
-    text-align: center; /* Center the title horizontally */
-    margin-top: 1o0px; /* Adjust this value to control the distance from the top */
-
+  font-size: 8rem; /* Adjust font size as needed */
+  text-align: center; /* Center the title horizontally */
+  margin-top: 1o0px; /* Adjust this value to control the distance from the top */
 }
 
 /* Styling for the specific experiment message */
 .text {
-    font-family: Helvetica, Arial, sans-serif; /* Set Helvetica as the font family */
-    font-size: 1rem; /* Adjust the font size as needed */
-    font-weight: normal; /* Normal weight (not bold) */
-    /* color: #000;  Optional: Set a color that contrasts with your background */
+  font-family: Helvetica, Arial, sans-serif; /* Set Helvetica as the font family */
+  font-size: 1rem; /* Adjust the font size as needed */
+  font-weight: normal; /* Normal weight (not bold) */
+  /* color: #000;  Optional: Set a color that contrasts with your background */
 }
 
 /* Color Theme Swatches in Hex */
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-1-hex { color: #475942; }
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-2-hex { color: #5C7345; }
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-3-hex { color: #A4BF69; }
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-4-hex { color: #C0D966; }
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-5-hex { color: #E7F2BD; }
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-1-hex {
+  color: #475942;
+}
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-2-hex {
+  color: #5c7345;
+}
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-3-hex {
+  color: #a4bf69;
+}
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-4-hex {
+  color: #c0d966;
+}
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-5-hex {
+  color: #e7f2bd;
+}
 
 /* Color Theme Swatches in RGBA */
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-1-rgba { color: rgba(71, 89, 66, 1); }
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-2-rgba { color: rgba(91, 114, 68, 1); }
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-3-rgba { color: rgba(163, 191, 105, 1); }
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-4-rgba { color: rgba(191, 216, 101, 1); }
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-5-rgba { color: rgba(230, 242, 188, 1); }
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-1-rgba {
+  color: rgba(71, 89, 66, 1);
+}
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-2-rgba {
+  color: rgba(91, 114, 68, 1);
+}
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-3-rgba {
+  color: rgba(163, 191, 105, 1);
+}
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-4-rgba {
+  color: rgba(191, 216, 101, 1);
+}
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-5-rgba {
+  color: rgba(230, 242, 188, 1);
+}
 
 /* Color Theme Swatches in HSLA */
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-1-hsla { color: hsla(106, 14, 30, 1); }
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-2-hsla { color: hsla(90, 25, 36, 1); }
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-3-hsla { color: hsla(78, 40, 58, 1); }
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-4-hsla { color: hsla(73, 60, 62, 1); }
-.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-5-hsla { color: hsla(73, 67, 84, 1); }
-
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-1-hsla {
+  color: hsla(106, 14, 30, 1);
+}
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-2-hsla {
+  color: hsla(90, 25, 36, 1);
+}
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-3-hsla {
+  color: hsla(78, 40, 58, 1);
+}
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-4-hsla {
+  color: hsla(73, 60, 62, 1);
+}
+.Healthy-green-trees-in-a-forest-of-old-spruce,
+-fir-and-pine-5-hsla {
+  color: hsla(73, 67, 84, 1);
+}
 
 .micro-5-regular {
   font-family: "Micro 5", system-ui;
@@ -73,29 +117,33 @@ body {
 
 /* Container to center the typing text */
 .typing-container {
-    display: flex;
-    justify-content: center; /* Center the text horizontally */
-    align-items: center;     /* Center the text vertically if needed */
-    width: 100%;             /* Adjust based on your layout */
-    height: auto;            /* Adjust height if needed */
-    margin: 0 auto;          /* Centering within the parent container */
+  display: flex;
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically if needed */
+  width: 100%; /* Adjust based on your layout */
+  height: auto; /* Adjust height if needed */
+  margin: 0 auto; /* Centering within the parent container */
 }
 
 /* Typing effect */
 .typing {
-    font-family: Helvetica, Arial, sans-serif; /* Set Helvetica as the font family */
-    font-size: 1rem; /* Adjust the font size as needed */
-    font-weight: normal; /* Normal weight (not bold) */
-    overflow: hidden;          /* Ensures text doesn't overflow */
-    white-space: nowrap;       /* Keeps text in a single line */
-    border-right: 3px solid;   /* Simulates a cursor */
-    width: 0;                  /* Initial width to start the typing effect */
-    animation: typing 4s steps(40, end) forwards; /* Typing animation */
-    padding-left: 20px;        /* Adjust as needed to control the starting position */
-    text-align: center;        /* Ensure text is centered */
+  font-family: Helvetica, Arial, sans-serif; /* Set Helvetica as the font family */
+  font-size: 1rem; /* Adjust the font size as needed */
+  font-weight: normal; /* Normal weight (not bold) */
+  overflow: hidden; /* Ensures text doesn't overflow */
+  white-space: nowrap; /* Keeps text in a single line */
+  border-right: 3px solid; /* Simulates a cursor */
+  width: 0; /* Initial width to start the typing effect */
+  animation: typing 4s steps(40, end) forwards; /* Typing animation */
+  padding-left: 20px; /* Adjust as needed to control the starting position */
+  text-align: center; /* Ensure text is centered */
 }
 
 @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
