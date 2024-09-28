@@ -73,10 +73,11 @@ window.onload = function () {
   startGame();
 
   //1/10th of a second
-  window.setInterval(function () {
+    gameInterval = window.setInterval(function () {
     crushCandy();
     slideCandy();
     generateCandy();
+    checkGameEnd();
   }, 100);
 };
 
@@ -321,7 +322,8 @@ function checkGameEnd() {
     }
 
     // Check if at least a third of the tiles are fire.png
-    if (fireCount >= 5) {
+    if (fireCount >= 15) {
         alert("Game Over! A third of the tiles have turned to fire.");
+        clearInterval(gameInterval);
     }
 }
