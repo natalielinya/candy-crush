@@ -3,7 +3,7 @@ body {
     /*background-color: #014040;*/
     background-color: #E7F2BD;
     background-size: cover;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Micro 5", Arial, Helvetica, sans-serif; /* Updated font-family */
     /*color: #F0EBD8;*/
     text-align: center;
 }
@@ -28,7 +28,7 @@ body {
 
 /* Center the main title with some distance from the top */
 .main-title {
-    font-size: 5rem; /* Adjust font size as needed */
+    font-size: 7rem; /* Adjust font size as needed */
     text-align: center; /* Center the title horizontally */
     margin-top: 1o0px; /* Adjust this value to control the distance from the top */
 
@@ -36,9 +36,10 @@ body {
 
 /* Styling for the specific experiment message */
 .text {
+    font-family: Helvetica, Arial, sans-serif; /* Set Helvetica as the font family */
     font-size: 1rem; /* Adjust the font size as needed */
-    font-weight: normal; /* Remove the bold style */
-     /* Optional: Set a color that contrasts with your background */
+    font-weight: normal; /* Normal weight (not bold) */
+    /* color: #000;  Optional: Set a color that contrasts with your background */
 }
 
 /* Color Theme Swatches in Hex */
@@ -63,10 +64,8 @@ body {
 .Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-5-hsla { color: hsla(73, 67, 84, 1); }
 
 
-
-.pixelify-sans-<uniquifier> {
-  font-family: "Pixelify Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
+.micro-5-regular {
+  font-family: "Micro 5", system-ui;
+  font-weight: 400;
   font-style: normal;
 }
