@@ -118,60 +118,31 @@ function startGame() {
   console.log(board);
 }
 
-function dragStart(e) {
-    e.preventDefault(); // Prevents the default touch behavior
-    currTile = this;
+//Touch function on Mobile
+
+//Drag Option on the Desktop
+
+function dragStart() {
+  //this refers to tile that was clicked on for dragging
+  currTile = this;
 }
 
 function dragOver(e) {
-    e.preventDefault(); // Allows the drag to happen on mobile
+  e.preventDefault();
 }
 
 function dragEnter(e) {
-    e.preventDefault(); // Allows the drag to happen on mobile
-}
-
-function dragDrop(e) {
-    e.preventDefault(); // Prevents touch behaviors from interrupting the drop
-    otherTile = this;
+  e.preventDefault();
 }
 
 function dragLeave() {}
 
-let startX, startY;
-
-function handleTouchStart(e) {
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-    currTile = this;
+function dragDrop() {
+  //this refers to the target tile that was dropped on
+  otherTile = this;
 }
 
-function handleTouchMove(e) {
-    e.preventDefault();
-    const moveX = e.touches[0].clientX;
-    const moveY = e.touches[0].clientY;
 
-    const diffX = moveX - startX;
-    const diffY = moveY - startY;
-
-    if (Math.abs(diffX) > Math.abs(diffY)) {
-        // Horizontal swipe
-        if (diffX > 0) {
-            otherTile = document.getElementById(currTile.id.split('-')[0] + '-' + (parseInt(currTile.id.split('-')[1]) + 1));
-        } else {
-            otherTile = document.getElementById(currTile.id.split('-')[0] + '-' + (parseInt(currTile.id.split('-')[1]) - 1));
-        }
-    } else {
-        // Vertical swipe
-        if (diffY > 0) {
-            otherTile = document.getElementById((parseInt(currTile.id.split('-')[0]) + 1) + '-' + currTile.id.split('-')[1]);
-        } else {
-            otherTile = document.getElementById((parseInt(currTile.id.split('-')[0]) - 1) + '-' + currTile.id.split('-')[1]);
-        }
-    }
-
-    dragEnd(); // Complete the swap
-}
 
 function dragEnd() {
   if (currTile.src.includes("blank") || otherTile.src.includes("blank")) {
