@@ -229,11 +229,13 @@ function crushThree() {
           candy2.src.includes("geocoin") ||
           candy3.src.includes("geocoin")
         ) {
-          score += 30;
           // Only score points if it's a Coin
-          candy1.src = "./images/Blue.png";
-          candy2.src = "./images/Blue.png";
-          candy3.src = "./images/Blue.png";
+          candy1.src = "./images/blank.png";
+          candy2.src = "./images/blank.png";
+          candy3.src = "./images/blank.png";
+          
+          score += 30;
+          
         } else {
           // Only score points if it's a Coin
           candy1.src = "./images/blank.png";
