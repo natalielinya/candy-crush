@@ -191,7 +191,7 @@ function crushThree() {
       if (
         candy1.src == candy2.src &&
         candy2.src == candy3.src &&
-        !candy1.src.includes("blank")
+        !candy1.src.includes("fire")
       ) {
         if (
           candy1.src.includes("geocoin") ||
@@ -200,14 +200,14 @@ function crushThree() {
         ) {
           score += 30;
           // Only score points if it's a Coin
-          candy1.src = "./images/blank.png";
-          candy2.src = "./images/blank.png";
-          candy3.src = "./images/blank.png";
+          candy1.src = "./images/fire.png";
+          candy2.src = "./images/fire.png";
+          candy3.src = "./images/fire.png";
         } else {
           // Only score points if it's a Coin
-          candy1.src = "./images/blank.png";
-          candy2.src = "./images/blank.png";
-          candy3.src = "./images/blank.png";
+          candy1.src = "./images/fire.png";
+          candy2.src = "./images/fire.png";
+          candy3.src = "./images/fire.png";
         }
       }
     }
@@ -222,7 +222,7 @@ function crushThree() {
       if (
         candy1.src == candy2.src &&
         candy2.src == candy3.src &&
-        !candy1.src.includes("blank")
+        !candy1.src.includes("fire")
       ) {
         if (
           candy1.src.includes("geocoin") ||
@@ -230,17 +230,17 @@ function crushThree() {
           candy3.src.includes("geocoin")
         ) {
           // Only score points if it's a Coin
-          candy1.src = "./images/blank.png";
-          candy2.src = "./images/blank.png";
-          candy3.src = "./images/blank.png";
+          candy1.src = "./images/fire.png";
+          candy2.src = "./images/fire.png";
+          candy3.src = "./images/fire.png";
           
           score += 30;
           
         } else {
           // Only score points if it's a Coin
-          candy1.src = "./images/blank.png";
-          candy2.src = "./images/blank.png";
-          candy3.src = "./images/blank.png";
+          candy1.src = "./images/fire.png";
+          candy2.src = "./images/fire.png";
+          candy3.src = "./images/fire.png";
         }
       }
     }
@@ -257,7 +257,7 @@ function checkValid() {
       if (
         candy1.src == candy2.src &&
         candy2.src == candy3.src &&
-        !candy1.src.includes("blank")
+        !candy1.src.includes("fire")
       ) {
         return true;
       }
@@ -273,7 +273,7 @@ function checkValid() {
       if (
         candy1.src == candy2.src &&
         candy2.src == candy3.src &&
-        !candy1.src.includes("blank")
+        !candy1.src.includes("fire")
       ) {
         return true;
       }
@@ -287,21 +287,21 @@ function slideCandy() {
   for (let c = 0; c < columns; c++) {
     let ind = rows - 1;
     for (let r = columns - 1; r >= 0; r--) {
-      if (!board[r][c].src.includes("blank")) {
+      if (!board[r][c].src.includes("fire")) {
         board[ind][c].src = board[r][c].src;
         ind -= 1;
       }
     }
 
     for (let r = ind; r >= 0; r--) {
-      board[r][c].src = "./images/blank.png";
+      board[r][c].src = "./images/fire.png";
     }
   }
 }
 
 function generateCandy() {
   for (let c = 0; c < columns; c++) {
-    if (board[0][c].src.includes("blank")) {
+    if (board[0][c].src.includes("fire")) {
       board[0][c].src = "./images/" + randomCandy() + ".png";
     }
   }
