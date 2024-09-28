@@ -205,9 +205,9 @@ function crushThree() {
           candy3.src = "./images/fire.png";
         } else {
           // Only score points if it's a Coin
-          candy1.src = "./images/fire.png";
-          candy2.src = "./images/fire.png";
-          candy3.src = "./images/fire.png";
+          candy1.src = "./images/root.png";
+          candy2.src = "./images/root.png";
+          candy3.src = "./images/root.png";
         }
       }
     }
@@ -238,9 +238,9 @@ function crushThree() {
           
         } else {
           // Only score points if it's a Coin
-          candy1.src = "./images/fire.png";
-          candy2.src = "./images/fire.png";
-          candy3.src = "./images/fire.png";
+          candy1.src = "./images/root.png";
+          candy2.src = "./images/root.png";
+          candy3.src = "./images/root.png";
         }
       }
     }
@@ -287,21 +287,21 @@ function slideCandy() {
   for (let c = 0; c < columns; c++) {
     let ind = rows - 1;
     for (let r = columns - 1; r >= 0; r--) {
-      if (!board[r][c].src.includes("fire")) {
+      if (!board[r][c].src.includes("root")) {
         board[ind][c].src = board[r][c].src;
         ind -= 1;
       }
     }
 
     for (let r = ind; r >= 0; r--) {
-      board[r][c].src = "./images/fire.png";
+      board[r][c].src = "./images/root.png";
     }
   }
 }
 
 function generateCandy() {
   for (let c = 0; c < columns; c++) {
-    if (board[0][c].src.includes("fire")) {
+    if (board[0][c].src.includes("root")) {
       board[0][c].src = "./images/" + randomCandy() + ".png";
     }
   }
