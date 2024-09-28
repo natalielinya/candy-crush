@@ -2,17 +2,17 @@
 
 let ws = new WebSocket("wss://human-echoes-f0fe8c05475c.herokuapp.com:443");
 
-let controlledByTD = document.querySelector(".controlledByTD");
+//let controlledByTD = document.querySelector(".controlledByTD");
 
-let controlTD = document.querySelector(".controllTD");
+//let controlTD = document.querySelector(".controllTD");
 
 let button = document.getElementById("myButton");
 
 let buttonClickCount = 0;
 
-controlTD.addEventListener("input", (event) => {
-  ws.send(JSON.stringify({ "slider1:": controlTD.value / 100 }));
-});
+//controlTD.addEventListener("input", (event) => {
+//Can   ws.send(JSON.stringify({ "slider1:": controlTD.value / 100 }));
+//});
 
 button.addEventListener("click", handleClick);
 
@@ -26,13 +26,13 @@ ws.addEventListener("message", (message) => {
     return;
   }
 
-  let data = JSON.parse(message.data);
-  if ("slider1" in data) {
-    let val = data["slider1"];
-    controlledByTD.value = val * 100;
-  }
+//  let data = JSON.parse(message.data);
+//  if ("slider1" in data) {
+//    let val = data["slider1"];
+//    controlledByTD.value = val * 100;
+//  }
 
-  console.log(data);
+//  console.log(data);
 });
 
 ws.addEventListener("error", (error) => {
@@ -87,26 +87,59 @@ function randomCandy() {
   return candies[Math.floor(Math.random() * candies.length)]; //0 - 5.99
 }
 
+let startX, startY;
+
+function handleTouchStart(e) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    currTile = this;
+}
+
+function handleTouchMove(e) {
+    e.preventDefault();
+    const moveX = e.touches[0].clientX;
+    const moveY = e.touches[0].clientY;
+
+    const diffX = moveX - startX;
+    const diffY = moveY - startY;
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        // Horizontal swipe
+        if (diffX > 0) {
+            otherTile = document.getElementById(currTile.id.split('-')[0] + '-' + (parseInt(currTile.id.split('-')[1]) + 1));
+        } else {
+            otherTile = document.getElementById(currTile.id.split('-')[0] + '-' + (parseInt(currTile.id.split('-')[1]) - 1));
+        }
+    } else {
+        // Vertical swipe
+        if (diffY > 0) {
+            otherTile = document.getElementById((parseInt(currTile.id.split('-')[0]) + 1) + '-' + currTile.id.split('-')[1]);
+        } else {
+            otherTile = document.getElementById((parseInt(currTile.id.split('-')[0]) - 1) + '-' + currTile.id.split('-')[1]);
+        }
+    }
+
+    dragEnd(); // Complete the swap
+}
+
 function startGame() {
   for (let r = 0; r < rows; r++) {
     let row = [];
     for (let c = 0; c < columns; c++) {
-      // <img id="0-0" src="./images/Red.png">
       let tile = document.createElement("img");
       tile.id = r.toString() + "-" + c.toString();
       tile.src = "./images/" + randomCandy() + ".png";
 
-      //DRAG FUNCTIONALITY
-      tile.addEventListener("dragstart", dragStart); //click on a candy, initialize drag process
-      tile.addEventListener("dragover", dragOver); //clicking on candy, moving mouse to drag the candy
-      tile.addEventListener("dragenter", dragEnter); //dragging candy onto another candy
-      tile.addEventListener("dragleave", dragLeave); //leave candy over another candy
-      tile.addEventListener("drop", dragDrop); //dropping a candy over another candy
-      tile.addEventListener("dragend", dragEnd); //after drag process completed, we swap candies
+      // Existing event listeners
+      tile.addEventListener("dragstart", dragStart);
+      tile.addEventListener("dragover", dragOver);
+      tile.addEventListener("dragenter", dragEnter);
+      tile.addEventListener("drop", dragDrop);
+      tile.addEventListener("dragend", dragEnd);
 
       // Add touch event listeners for mobile
-      tile.addEventListener("touchstart", dragStart);
-      tile.addEventListener("touchmove", dragOver);
+      tile.addEventListener("touchstart", handleTouchStart);
+      tile.addEventListener("touchmove", handleTouchMove);
       tile.addEventListener("touchend", dragEnd);
 
       document.getElementById("board").append(tile);
@@ -114,33 +147,31 @@ function startGame() {
     }
     board.push(row);
   }
-
-  console.log(board);
 }
+
 
 //Touch function on Mobile
 
 //Drag Option on the Desktop
 
-function dragStart() {
-  //this refers to tile that was clicked on for dragging
-  currTile = this;
+function dragStart(e) {
+    currTile = this;
 }
 
 function dragOver(e) {
-  e.preventDefault();
+    e.preventDefault(); // Allows the drag to happen on mobile
 }
 
 function dragEnter(e) {
-  e.preventDefault();
+    e.preventDefault(); // Allows the drag to happen on mobile
+}
+
+function dragDrop(e) {
+    otherTile = this;
 }
 
 function dragLeave() {}
 
-function dragDrop() {
-  //this refers to the target tile that was dropped on
-  otherTile = this;
-}
 
 
 
@@ -330,7 +361,7 @@ function checkGameEnd() {
     }
 
     // Check if at least a third of the tiles are fire.png
-    if (fireCount >= 15) {
+    if (fireCount >= 20) {
         clearInterval(gameInterval); // Stop the game loop
         alert("Game Over! A third of the tiles have turned to fire.");
 
