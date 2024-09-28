@@ -60,7 +60,7 @@ function handleClick() {
 // CANDYCRUSH GAME
 /* candycrush initialize */
 
-var candies = ["Coin", "GreenTest", "Green7", "Green3", "Green4"];
+var candies = ["Coin 2", "Green8", "Green9", "Green11"];
 var board = [];
 var rows = 9;
 var columns = 9;
@@ -213,9 +213,9 @@ function crushThree() {
         !candy1.src.includes("blank")
       ) {
         if (
-          candy1.src.includes("Coin") ||
-          candy2.src.includes("Coin") ||
-          candy3.src.includes("Coin")
+          candy1.src.includes("Coin 2") ||
+          candy2.src.includes("Coin 2") ||
+          candy3.src.includes("Coin 2")
         ) {
           score += 30;
           candy1.src = "./images/blank.png";
