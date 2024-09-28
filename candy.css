@@ -1,7 +1,7 @@
 body {
     /*background: url("./background.jpg") no-repeat center center fixed;*/
-    /*background-color: #014040;*/
-    background-color: #E7F2BD;
+    background-color: #014040;
+    /*background-color: #E7F2BD;*/
     background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
     color: #F0EBD8;
@@ -11,7 +11,8 @@ body {
 #board {
     width: 450px;
     height: 450px;
-    background-color: #014040;
+    background-color: #E7F2BD;
+    /*background-color: #014040;
     /*background-color: #72C1C1;*/
     /*border: 5px solid slategray;*/
     border-radius: 3px;

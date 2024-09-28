@@ -178,7 +178,7 @@ function crushCandy() {
   crushThree();
   document.getElementById("score").innerText = score;
    // Adjust the background color progressively
-    adjustBackgroundColor();
+    /*adjustBackgroundColor();*/
 }
 
 function crushThree() {
