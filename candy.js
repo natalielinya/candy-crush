@@ -60,7 +60,7 @@ function handleClick() {
 // CANDYCRUSH GAME
 /* candycrush initialize */
 
-var candies = ["Coin", "GreenTest", "GreenTest", "Green3", "Green4"];
+var candies = ["Coin", "GreenTest", "Green7", "Green3", "Green4"];
 var board = [];
 var rows = 9;
 var columns = 9;
@@ -301,9 +301,9 @@ function adjustBackgroundColor() {
 
     // Starting color: #014040
     const startColor = {
-        r: 1,
-        g: 64,
-        b: 64
+        r: 230,
+        g: 242,
+        b: 188
     };
 
     // Ending color (black): #000000

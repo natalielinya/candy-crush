@@ -1,9 +1,10 @@
 body {
     /*background: url("./background.jpg") no-repeat center center fixed;*/
-    background-color: #014040;
+    /*background-color: #014040;*/
+    background-color: #E7F2BD;
     background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
-    color: #F0EBD8; /* Change text color to green */
+    color: #F0EBD8;
     text-align: center;
 }
 
@@ -39,3 +40,23 @@ body {
      /* Optional: Set a color that contrasts with your background */
 }
 
+/* Color Theme Swatches in Hex */
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-1-hex { color: #475942; }
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-2-hex { color: #5C7345; }
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-3-hex { color: #A4BF69; }
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-4-hex { color: #C0D966; }
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-5-hex { color: #E7F2BD; }
+
+/* Color Theme Swatches in RGBA */
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-1-rgba { color: rgba(71, 89, 66, 1); }
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-2-rgba { color: rgba(91, 114, 68, 1); }
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-3-rgba { color: rgba(163, 191, 105, 1); }
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-4-rgba { color: rgba(191, 216, 101, 1); }
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-5-rgba { color: rgba(230, 242, 188, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-1-hsla { color: hsla(106, 14, 30, 1); }
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-2-hsla { color: hsla(90, 25, 36, 1); }
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-3-hsla { color: hsla(78, 40, 58, 1); }
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-4-hsla { color: hsla(73, 60, 62, 1); }
+.Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-5-hsla { color: hsla(73, 67, 84, 1); }
