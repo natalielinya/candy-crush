@@ -61,3 +61,12 @@ body {
 .Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-3-hsla { color: hsla(78, 40, 58, 1); }
 .Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-4-hsla { color: hsla(73, 60, 62, 1); }
 .Healthy-green-trees-in-a-forest-of-old-spruce,-fir-and-pine-5-hsla { color: hsla(73, 67, 84, 1); }
+
+
+
+.pixelify-sans-<uniquifier> {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}

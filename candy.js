@@ -60,7 +60,7 @@ function handleClick() {
 // CANDYCRUSH GAME
 /* candycrush initialize */
 
-var candies = ["geocoin", "geo1", "geo2", "Green11"];
+var candies = ["geocoin", "geo1", "geo2", "geo3"];
 var board = [];
 var rows = 9;
 var columns = 9;
