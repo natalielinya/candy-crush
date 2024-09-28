@@ -194,14 +194,15 @@ function crushThree() {
         !candy1.src.includes("blank")
       ) {
         if (
-          candy1.src.includes("Coin 2") ||
-          candy2.src.includes("Coin 2") ||
-          candy3.src.includes("Coin 2")
+          candy1.src.includes("geocoin") ||
+          candy2.src.includes("geocoin") ||
+          candy3.src.includes("geocoin")
         ) {
           score += 30;
-          candy1.src = "./images/blue.png";
-          candy2.style.backgroundColor = "black";
-          candy3.style.backgroundColor = "black";
+          // Only score points if it's a Coin
+          candy1.src = "./images/blank.png";
+          candy2.src = "./images/blank.png";
+          candy3.src = "./images/blank.png";
         } else {
           // Only score points if it's a Coin
           candy1.src = "./images/blank.png";
@@ -224,14 +225,15 @@ function crushThree() {
         !candy1.src.includes("blank")
       ) {
         if (
-          candy1.src.includes("Coin 2") ||
-          candy2.src.includes("Coin 2") ||
-          candy3.src.includes("Coin 2")
+          candy1.src.includes("geocoin") ||
+          candy2.src.includes("geocoin") ||
+          candy3.src.includes("geocoin")
         ) {
           score += 30;
-          candy1.style.backgroundColor = "black";
-          candy2.style.backgroundColor = "black";
-          candy3.style.backgroundColor = "black";
+          // Only score points if it's a Coin
+          candy1.src = "./images/Blue.png";
+          candy2.src = "./images/Blue.png";
+          candy3.src = "./images/Blue.png";
         } else {
           // Only score points if it's a Coin
           candy1.src = "./images/blank.png";
