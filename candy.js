@@ -69,6 +69,8 @@ var score = 0;
 var currTile;
 var otherTile;
 
+var gameInterval;
+
 window.onload = function () {
   startGame();
 
@@ -323,7 +325,33 @@ function checkGameEnd() {
 
     // Check if at least a third of the tiles are fire.png
     if (fireCount >= 15) {
+        clearInterval(gameInterval); // Stop the game loop
         alert("Game Over! A third of the tiles have turned to fire.");
-        clearInterval(gameInterval);
+
+        // Ask the user if they want to play again
+        if (confirm("Do you want to play again?")) {
+            resetGame(); // Restart the game
+        }
     }
+}
+
+function resetGame() {
+    // Clear the board array and remove all existing tiles from the DOM
+    board = [];
+    document.getElementById("board").innerHTML = "";
+
+    // Reset the score and update the display
+    score = 0;
+    document.getElementById("score").innerText = score;
+
+    // Restart the game
+    startGame();
+
+    // Restart the game interval
+    gameInterval = window.setInterval(function () {
+        crushCandy();
+        slideCandy();
+        generateCandy();
+        checkGameEnd(); // Check if the game should end
+    }, 100);
 }
