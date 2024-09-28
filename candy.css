@@ -4,7 +4,7 @@ body {
     background-color: #E7F2BD;
     background-size: cover;
     font-family: "Micro 5", Arial, Helvetica, sans-serif; /* Updated font-family */
-    /*color: #F0EBD8;*/
+    color: #13260E;
     text-align: center;
 }
 
@@ -28,7 +28,7 @@ body {
 
 /* Center the main title with some distance from the top */
 .main-title {
-    font-size: 7rem; /* Adjust font size as needed */
+    font-size: 8rem; /* Adjust font size as needed */
     text-align: center; /* Center the title horizontally */
     margin-top: 1o0px; /* Adjust this value to control the distance from the top */
 
@@ -68,4 +68,35 @@ body {
   font-family: "Micro 5", system-ui;
   font-weight: 400;
   font-style: normal;
+}
+
+/* Container to center the typing text */
+.typing-container {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center the text horizontally */
+    width: 100%;             /* Full width to center within parent container */
+    height: auto;            /* Adjust height if needed */
+    margin: 0 auto;          /* Centering within the parent container */
+}
+
+/* Typing effect */
+.typing {
+    font-family: Helvetica, Arial, sans-serif; /* Set Helvetica as the font family */
+    font-size: 1rem; /* Adjust the font size as needed */
+    font-weight: normal; /* Normal weight (not bold) */
+    overflow: hidden;          /* Ensures text doesn't overflow */
+    white-space: nowrap;       /* Keeps text in a single line */
+    border-right: 3px solid;   /* Simulates a cursor */
+    width: 0;                  /* Initial width to start the typing effect */
+    animation: typing 4s steps(40, end) forwards; /* Typing animation */
+    position: absolute;        /* Positioning the text absolutely */
+    left: 50%;                 /* Start typing from the center */
+    transform: translateX(-50%); /* Adjust to perfectly center */
+    text-align: center;        /* Ensure text is centered */
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
 }
