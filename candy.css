@@ -1,7 +1,7 @@
 body {
     /*background: url("./background.jpg") no-repeat center center fixed;*/
     /*background-color: #014040;*/
-    background-color: #E7F2BD;
+    background-color: #EFF2BD;
     background-size: cover;
     font-family: "Micro 5", Arial, Helvetica, sans-serif; /* Updated font-family */
     color: #13260E;
@@ -72,10 +72,10 @@ body {
 
 /* Container to center the typing text */
 .typing-container {
-    position: relative;
     display: flex;
     justify-content: center; /* Center the text horizontally */
-    width: 100%;             /* Full width to center within parent container */
+    align-items: center;     /* Center the text vertically if needed */
+    width: 100%;             /* Adjust based on your layout */
     height: auto;            /* Adjust height if needed */
     margin: 0 auto;          /* Centering within the parent container */
 }
@@ -90,9 +90,7 @@ body {
     border-right: 3px solid;   /* Simulates a cursor */
     width: 0;                  /* Initial width to start the typing effect */
     animation: typing 4s steps(40, end) forwards; /* Typing animation */
-    position: absolute;        /* Positioning the text absolutely */
-    left: 50%;                 /* Start typing from the center */
-    transform: translateX(-50%); /* Adjust to perfectly center */
+    padding-left: 20px;        /* Adjust as needed to control the starting position */
     text-align: center;        /* Ensure text is centered */
 }
 
