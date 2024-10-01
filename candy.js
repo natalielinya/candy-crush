@@ -243,6 +243,7 @@ function crushThree() {
           candy1.src = "./images/fire.png";
           candy2.src = "./images/fire.png";
           candy3.src = "./images/fire.png";
+          ws.send(JSON.stringify({ "Coins": 1.0 }));
         } else {
           // Only score points if it's a Coin
           candy1.src = "./images/root.png";
@@ -273,6 +274,7 @@ function crushThree() {
           candy1.src = "./images/fire.png";
           candy2.src = "./images/fire.png";
           candy3.src = "./images/fire.png";
+          ws.send(JSON.stringify({ "Coins": 1.0 }));
           
           score += 30;
           
@@ -363,6 +365,7 @@ function checkGameEnd() {
     // Check if at least a third of the tiles are fire.png
     if (fireCount >= 20) {
         clearInterval(gameInterval); // Stop the game loop
+        ws.send(JSON.stringify({ "Gameover": 1.0 }));
         alert("Game Over! A third of the tiles have turned to fire.");
 
         // Ask the user if they want to play again
