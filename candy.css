@@ -137,6 +137,7 @@ body {
   animation: typing 4s steps(40, end) forwards; /* Typing animation */
   padding-left: 20px; /* Adjust as needed to control the starting position */
   text-align: center; /* Ensure text is centered */
+  margin-bottom: 20px;
 }
 
 @keyframes typing {
@@ -152,7 +153,7 @@ h3 {
   font-size: 40px; /* Adjust this to make the "Score:" text larger */
   font-weight: bold;/* Optional: Makes the "Score:" text bold */
   /*color: #BF1363;*/
-  margin-bottom: 10px; /* Adjust this value to control the spacing below the score */
+  margin-bottom: 15px; /* Adjust this value to control the spacing below the score */
   margin-top: 15px; /* Optional: Adjust the top margin if needed */
 }
 
