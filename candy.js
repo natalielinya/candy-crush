@@ -365,12 +365,12 @@ function checkGameEnd() {
   if (fireCount >= 20) {
     clearInterval(gameInterval); // Stop the game loop
     ws.send(JSON.stringify({ Gameover: 1.0 }));
-    alert("Game Over! A third of the tiles have turned to fire.");
+    alert("Game Over! You destroyed your playground.");
 
     // Ask the user if they want to play again
     if (confirm("Do you want to play again?")) {
       if (confirm("Will you change your approach?")) {
-        if (confirm("Will we ever change our patterns?")) {
+        if (confirm("Will we change our patterns?")) {
           resetGame(); // Restart the game
         }
       }
