@@ -147,3 +147,19 @@ body {
     width: 100%;
   }
 }
+
+h3 {
+  font-size: 40px; /* Adjust this to make the "Score:" text larger */
+  font-weight: bold;/* Optional: Makes the "Score:" text bold */
+  /*color: #BF1363;*/
+  margin-bottom: 10px; /* Adjust this value to control the spacing below the score */
+  margin-top: 15px; /* Optional: Adjust the top margin if needed */
+}
+
+h2 {
+  font-family: Helvetica, Arial, sans-serif; /* Set Helvetica as the font family */
+  font-size: 1rem; /* Adjust the font size as needed */
+  font-weight: normal;
+  margin-bottom: 50px; /* Adjust this value to control the spacing below the score */
+  margin-top: 10px; /* Optional: Adjust the top margin if needed */
+}

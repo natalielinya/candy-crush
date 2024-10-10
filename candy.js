@@ -6,15 +6,10 @@ let ws = new WebSocket("wss://human-echoes-f0fe8c05475c.herokuapp.com:443");
 
 //let controlTD = document.querySelector(".controllTD");
 
-let button = document.getElementById("myButton");
 
-let buttonClickCount = 0;
 
-//controlTD.addEventListener("input", (event) => {
-//Can   ws.send(JSON.stringify({ "slider1:": controlTD.value / 100 }));
-//});
 
-button.addEventListener("click", handleClick);
+
 
 ws.addEventListener("open", (event) => {
   console.log("websocket opened");
@@ -26,13 +21,13 @@ ws.addEventListener("message", (message) => {
     return;
   }
 
-//  let data = JSON.parse(message.data);
-//  if ("slider1" in data) {
-//    let val = data["slider1"];
-//    controlledByTD.value = val * 100;
-//  }
+  //  let data = JSON.parse(message.data);
+  //  if ("slider1" in data) {
+  //    let val = data["slider1"];
+  //    controlledByTD.value = val * 100;
+  //  }
 
-//  console.log(data);
+  //  console.log(data);
 });
 
 ws.addEventListener("error", (error) => {
@@ -43,19 +38,10 @@ ws.addEventListener("close", (event) => {
   console.log("websocket closed");
 });
 
-// JavaScript function to be executed when the button is clicked
-function handleClick() {
-  // Increment button click count
-  buttonClickCount++;
-
-  if (buttonClickCount >= 5) {
-    buttonClickCount = 0;
-  }
-  // Display the count (you can replace this with any action you desire)
-  alert("Button clicked " + buttonClickCount + " times");
-
-  ws.send(JSON.stringify({ "buttonClickCount:": buttonClickCount }));
-}
+// Restart game when button is clicked
+document.getElementById("restartButton").addEventListener("click", function() {
+  resetGame(); // Call the function to reset the game
+});
 
 // CANDYCRUSH GAME
 /* candycrush initialize */
@@ -75,7 +61,7 @@ window.onload = function () {
   startGame();
 
   //1/10th of a second
-    gameInterval = window.setInterval(function () {
+  gameInterval = window.setInterval(function () {
     crushCandy();
     slideCandy();
     generateCandy();
@@ -90,36 +76,54 @@ function randomCandy() {
 let startX, startY;
 
 function handleTouchStart(e) {
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-    currTile = this;
+  startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
+  currTile = this;
 }
 
 function handleTouchMove(e) {
-    e.preventDefault();
-    const moveX = e.touches[0].clientX;
-    const moveY = e.touches[0].clientY;
+  e.preventDefault();
+  const moveX = e.touches[0].clientX;
+  const moveY = e.touches[0].clientY;
 
-    const diffX = moveX - startX;
-    const diffY = moveY - startY;
+  const diffX = moveX - startX;
+  const diffY = moveY - startY;
 
-    if (Math.abs(diffX) > Math.abs(diffY)) {
-        // Horizontal swipe
-        if (diffX > 0) {
-            otherTile = document.getElementById(currTile.id.split('-')[0] + '-' + (parseInt(currTile.id.split('-')[1]) + 1));
-        } else {
-            otherTile = document.getElementById(currTile.id.split('-')[0] + '-' + (parseInt(currTile.id.split('-')[1]) - 1));
-        }
+  if (Math.abs(diffX) > Math.abs(diffY)) {
+    // Horizontal swipe
+    if (diffX > 0) {
+      otherTile = document.getElementById(
+        currTile.id.split("-")[0] +
+          "-" +
+          (parseInt(currTile.id.split("-")[1]) + 1)
+      );
     } else {
-        // Vertical swipe
-        if (diffY > 0) {
-            otherTile = document.getElementById((parseInt(currTile.id.split('-')[0]) + 1) + '-' + currTile.id.split('-')[1]);
-        } else {
-            otherTile = document.getElementById((parseInt(currTile.id.split('-')[0]) - 1) + '-' + currTile.id.split('-')[1]);
-        }
+      otherTile = document.getElementById(
+        currTile.id.split("-")[0] +
+          "-" +
+          (parseInt(currTile.id.split("-")[1]) - 1)
+      );
     }
+  } else {
+    // Vertical swipe
+    if (diffY > 0) {
+      otherTile = document.getElementById(
+        parseInt(currTile.id.split("-")[0]) +
+          1 +
+          "-" +
+          currTile.id.split("-")[1]
+      );
+    } else {
+      otherTile = document.getElementById(
+        parseInt(currTile.id.split("-")[0]) -
+          1 +
+          "-" +
+          currTile.id.split("-")[1]
+      );
+    }
+  }
 
-    dragEnd(); // Complete the swap
+  dragEnd(); // Complete the swap
 }
 
 function startGame() {
@@ -149,31 +153,27 @@ function startGame() {
   }
 }
 
-
 //Touch function on Mobile
 
 //Drag Option on the Desktop
 
 function dragStart(e) {
-    currTile = this;
+  currTile = this;
 }
 
 function dragOver(e) {
-    e.preventDefault(); // Allows the drag to happen on mobile
+  e.preventDefault(); // Allows the drag to happen on mobile
 }
 
 function dragEnter(e) {
-    e.preventDefault(); // Allows the drag to happen on mobile
+  e.preventDefault(); // Allows the drag to happen on mobile
 }
 
 function dragDrop(e) {
-    otherTile = this;
+  otherTile = this;
 }
 
 function dragLeave() {}
-
-
-
 
 function dragEnd() {
   if (currTile.src.includes("blank") || otherTile.src.includes("blank")) {
@@ -217,8 +217,8 @@ function crushCandy() {
   //crushFour();
   crushThree();
   document.getElementById("score").innerText = score;
-   // Adjust the background color progressively
-    /*adjustBackgroundColor();*/
+  // Adjust the background color progressively
+  /*adjustBackgroundColor();*/
 }
 
 function crushThree() {
@@ -243,7 +243,7 @@ function crushThree() {
           candy1.src = "./images/fire.png";
           candy2.src = "./images/fire.png";
           candy3.src = "./images/fire.png";
-          ws.send(JSON.stringify({ "Coins": 1.0 }));
+          ws.send(JSON.stringify({ Coins: 1.0 }));
         } else {
           // Only score points if it's a Coin
           candy1.src = "./images/root.png";
@@ -274,10 +274,9 @@ function crushThree() {
           candy1.src = "./images/fire.png";
           candy2.src = "./images/fire.png";
           candy3.src = "./images/fire.png";
-          ws.send(JSON.stringify({ "Coins": 1.0 }));
-          
+          ws.send(JSON.stringify({ Coins: 1.0 }));
+
           score += 30;
-          
         } else {
           // Only score points if it's a Coin
           candy1.src = "./images/root.png";
@@ -350,48 +349,52 @@ function generateCandy() {
 }
 
 function checkGameEnd() {
-    let fireCount = 0;
-    let totalTiles = rows * columns; // Total number of tiles on the board
+  let fireCount = 0;
+  let totalTiles = rows * columns; // Total number of tiles on the board
 
-    // Loop through all tiles to count how many have fire.png
-    for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < columns; c++) {
-            if (board[r][c].src.includes("fire.png")) {
-                fireCount++;
-            }
-        }
+  // Loop through all tiles to count how many have fire.png
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < columns; c++) {
+      if (board[r][c].src.includes("fire.png")) {
+        fireCount++;
+      }
     }
+  }
 
-    // Check if at least a third of the tiles are fire.png
-    if (fireCount >= 20) {
-        clearInterval(gameInterval); // Stop the game loop
-        ws.send(JSON.stringify({ "Gameover": 1.0 }));
-        alert("Game Over! A third of the tiles have turned to fire.");
+  // Check if at least a third of the tiles are fire.png
+  if (fireCount >= 20) {
+    clearInterval(gameInterval); // Stop the game loop
+    ws.send(JSON.stringify({ Gameover: 1.0 }));
+    alert("Game Over! A third of the tiles have turned to fire.");
 
-        // Ask the user if they want to play again
-        if (confirm("Do you want to play again?")) {
-            resetGame(); // Restart the game
+    // Ask the user if they want to play again
+    if (confirm("Do you want to play again?")) {
+      if (confirm("Will you change your approach?")) {
+        if (confirm("Will we ever change our patterns?")) {
+          resetGame(); // Restart the game
         }
+      }
     }
+  }
 }
 
 function resetGame() {
-    // Clear the board array and remove all existing tiles from the DOM
-    board = [];
-    document.getElementById("board").innerHTML = "";
+  // Clear the board array and remove all existing tiles from the DOM
+  board = [];
+  document.getElementById("board").innerHTML = "";
 
-    // Reset the score and update the display
-    score = 0;
-    document.getElementById("score").innerText = score;
+  // Reset the score and update the display
+  score = 0;
+  document.getElementById("score").innerText = score;
 
-    // Restart the game
-    startGame();
+  // Restart the game
+  startGame();
 
-    // Restart the game interval
-    gameInterval = window.setInterval(function () {
-        crushCandy();
-        slideCandy();
-        generateCandy();
-        checkGameEnd(); // Check if the game should end
-    }, 100);
+  // Restart the game interval
+  gameInterval = window.setInterval(function () {
+    crushCandy();
+    slideCandy();
+    generateCandy();
+    checkGameEnd(); // Check if the game should end
+  }, 100);
 }
