@@ -370,9 +370,8 @@ function checkGameEnd() {
     // Ask the user if they want to play again
     if (confirm("Do you want to play again?")) {
       if (confirm("Will you change your approach?")) {
-        if (confirm("Will we change our patterns?")) {
           resetGame(); // Restart the game
-        }
+        
       }
     }
   }
